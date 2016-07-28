@@ -1,0 +1,28 @@
+{
+  "name": "leaflet-geojson-vt",
+  "version": "1.0.0",
+  "description": "A plugin combining geojson-vt with leafletjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonxiang/leaflet-geojson-vt.git"
+  },
+  "keywords": [
+    "leaflet",
+    "geojson-vt"
+  ],
+  "author": "brandonxiang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonxiang/leaflet-geojson-vt/issues"
+  },
+  "homepage": "https://github.com/brandonxiang/leaflet-geojson-vt#readme",
+  "dependencies": {
+    "geojson-vt": "^2.2.0",
+    "leaflet": "^0.7.7"
+  }
+}
