@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+map	G:\brandon-person\leaflet-geojson-vt\index.js	/^var map;$/;"	variable	line:1
+canvas	G:\brandon-person\leaflet-geojson-vt\index.js	/^var canvas;$/;"	variable	line:2
+initMap	G:\brandon-person\leaflet-geojson-vt\index.js	/^function initMap() {$/;"	function	line:4
+initMap	G:\brandon-person\leaflet-geojson-vt\index.js	/^function initMap() {$/;"	function	line:4
+drawGeoJSON	G:\brandon-person\leaflet-geojson-vt\index.js	/^function drawGeoJSON(url) {$/;"	function	line:20
+drawGeoJSON.options.maxZoom	G:\brandon-person\leaflet-geojson-vt\index.js	/^        maxZoom: 4,$/;"	property	line:23
+drawGeoJSON.options.baseZoom	G:\brandon-person\leaflet-geojson-vt\index.js	/^        baseZoom: 18,$/;"	property	line:24
+drawGeoJSON.options.maxPoints	G:\brandon-person\leaflet-geojson-vt\index.js	/^        maxPoints: 100,$/;"	property	line:25
+drawGeoJSON.options.debug	G:\brandon-person\leaflet-geojson-vt\index.js	/^        debug: 1$/;"	property	line:26
+corslite	G:\brandon-person\leaflet-geojson-vt\index.js	/^    corslite(url, function(err, resp) {$/;"	function	line:28
+drawTile	G:\brandon-person\leaflet-geojson-vt\index.js	/^        canvas.drawTile = function(canvas, tilePoint, zoom) {$/;"	function	line:30
+drawGeoJSON	G:\brandon-person\leaflet-geojson-vt\index.js	/^function drawGeoJSON(url) {$/;"	function	line:20
+drawFeature	G:\brandon-person\leaflet-geojson-vt\index.js	/^function drawFeature(ctx, feature) {$/;"	function	line:42
+drawFeature	G:\brandon-person\leaflet-geojson-vt\index.js	/^function drawFeature(ctx, feature) {$/;"	function	line:42
