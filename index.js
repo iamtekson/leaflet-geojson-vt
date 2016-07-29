@@ -3,13 +3,13 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
         async: false
     },
 
-    initialize: function (geojson, options, style) {
+    initialize: function (geojson, options) {
         L.setOptions(this, options);
         L.TileLayer.Canvas.prototype.initialize.call(this, options);
-        this.drawGeoJSON(geojson, style);
+        this.drawGeoJSON(geojson);
     },
 
-    drawGeoJSON: function (geojson, style) {
+    drawGeoJSON: function (geojson) {
         var tileIndex = geojsonvt(geojson, this.options);
         this.drawTile = function (_canvas, tilePoint, zoom) {
             var ctx = _canvas.getContext('2d');
@@ -17,17 +17,17 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
             var features = tile ? tile.features : [];
             for (var i = 0; i < features.length; i++) {
                 var feature = features[i];
-                this.drawFeature(ctx, feature, style);
+                this.drawFeature(ctx, feature);
             }
         };
 
     },
 
-    drawFeature: function (ctx, feature, style) {
+    drawFeature: function (ctx, feature) {
         var typeChanged = type !== feature.type,
             type = feature.type;
         ctx.beginPath();
-        if (style) this.setStyle(ctx, style);
+        if (this.options.style) this.setStyle(ctx, this.options.style);
         if (type === 2 || type === 3) {
             for (var j = 0; j < feature.geometry.length; j++) {
                 var ring = feature.geometry[j];
@@ -55,8 +55,8 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
     }
 })
 
-L.tileLayer.canvas.geoJson = function (geojson, options, style) {
-    return new L.TileLayer.Canvas.GeoJSON(geojson, options, style);
+L.tileLayer.canvas.geoJson = function (geojson, options) {
+    return new L.TileLayer.Canvas.GeoJSON(geojson, options);
 };
 
 

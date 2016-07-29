@@ -16,30 +16,31 @@ function initMap() {
     L.hash(map);
 }
 
-function drawCanvasLayer(url, name, style) {
+function drawCanvasLayer(url, name, options) {
     var name = name || "canvas";
-
+   
     corslite(url, function (err, resp) {
         var json = JSON.parse(resp.response);
-        var canvasLayer = L.tileLayer.canvas.geoJson(json, {
-            maxZoom: 16,
-            tolerance: 3,
-            debug: 0
-        }, style).addTo(map);
+        var canvasLayer = L.tileLayer.canvas.geoJson(json, options).addTo(map);
         layerControl.addOverlay(canvasLayer, name);
     }, true);
 }
 
 function main() {
     initMap();
-    style = {
-        fillColor: '#1EB300',
-        color: '#F2FF00',
-        weight: 2
-    }
-    drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon', style)
-    drawCanvasLayer('./greenway.json', 'polyline', style)
-    drawCanvasLayer('./busstop.json', 'point', style)
+     var options = {
+        maxZoom: 16,
+        tolerance: 3,
+        debug: 0,
+        style: {
+            fillColor: '#1EB300',
+            color: '#F2FF00',
+            weight: 2
+        }
+    };
+    drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon', options)
+    drawCanvasLayer('./greenway.json', 'polyline', options)
+    drawCanvasLayer('./busstop.json', 'point', options)
 }
 
 main();
