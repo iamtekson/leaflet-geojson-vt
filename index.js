@@ -3,10 +3,9 @@
 function drawGeoJSON(canvas, url, style) {
     var tileIndex;
     var options = {
-        maxZoom: 4,
-        baseZoom: 18,
-        maxPoints: 100,
-        debug: 1
+        maxZoom: 16,  // max zoom to preserve detail on
+        tolerance: 3, // simplification tolerance (higher means simpler)
+        debug: 0
     };
     corslite(url, function (err, resp) {
         tileIndex = geojsonvt(JSON.parse(resp.response), options);
