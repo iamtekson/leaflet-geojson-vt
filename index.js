@@ -2,7 +2,7 @@ var map;
 var canvas;
 
 function initMap() {
-    var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+    var basemap = L.tileLayer('//map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}');
     canvas = L.tileLayer.canvas();
     map = L.map('map', {
         center: [35.461, 139.603],
