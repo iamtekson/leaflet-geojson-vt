@@ -1,23 +1,28 @@
 var map;
-var canvas;
+var layerControl;
 
 function initMap() {
-    var basemap = L.tileLayer('//map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}');
-    canvas = L.tileLayer.canvas();
+    var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')
+    var geoq = L.tileLayer('//map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}');
     map = L.map('map', {
         center: [35.461, 139.603],
         zoom: 11,
-        layers: [basemap, canvas]
+        layers: [osm]
     });
-    L.control.layers({
-        'basemap': basemap
-    }, {
-        'canvas': canvas.addTo(map)
-    }).addTo(map);
+    layerControl = L.control.layers({
+        'osm': osm,
+        'geoq':geoq
+    }, {}).addTo(map);
     L.hash(map);
 }
 
-function drawGeoJSON(url) {
+function drawCanvasLayer(url,name){
+  var canvas = L.tileLayer.canvas().addTo(map);
+  layerControl.addOverlay(canvas,name);
+  drawGeoJSON(canvas,url)
+}
+
+function drawGeoJSON(canvas, url) {
     var tileIndex;
     var options = {
         maxZoom: 4,
@@ -55,7 +60,11 @@ function drawFeature(ctx, feature) {
     ctx.stroke();
 }
 
-initMap();
-// drawGeoJSON('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson')
-// drawGeoJSON('./libs/greenway.json')
-drawGeoJSON('./libs/busstop.json')
+function main(){
+  initMap();
+  drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson','polygon')
+  drawCanvasLayer('./libs/greenway.json','polyline')
+  // drawGeoJSON('./libs/busstop.json')
+}
+
+main();
