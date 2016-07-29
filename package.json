@@ -1,6 +1,6 @@
 {
   "name": "leaflet-geojson-vt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A plugin combining geojson-vt with leafletjs",
   "main": "index.js",
   "scripts": {
