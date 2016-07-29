@@ -20,7 +20,9 @@ function drawCanvasLayer(url, name, style) {
     var name = name || "canvas";
     var canvas = L.tileLayer.canvas().addTo(map);
     layerControl.addOverlay(canvas, name);
-    drawGeoJSON(canvas, url, style)
+    corslite(url, function (err, resp) {
+        canvas.drawGeoJSON(JSON.parse(resp.response), style)
+    }, true);
 }
 
 function main() {
@@ -32,7 +34,7 @@ function main() {
     }
     drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon', style)
     drawCanvasLayer('./greenway.json', 'polyline', style)
-    drawCanvasLayer('./busstop.json','point',style)
+    drawCanvasLayer('./busstop.json', 'point', style)
 }
 
 main();

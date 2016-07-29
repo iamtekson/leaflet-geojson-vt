@@ -1,5 +1,7 @@
 # TODO
 
+- ~~convert to included class of `L.TileLayer.Canvas`~~
+
 - ~~different canvas layers~~
 - ~~style for polygon and polyline~~
 - ~~layers change~~
