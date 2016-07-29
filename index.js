@@ -1,3 +1,5 @@
+
+
 function drawGeoJSON(canvas, url, style) {
     var tileIndex;
     var options = {
@@ -25,15 +27,21 @@ function drawFeature(ctx, feature, style) {
         type = feature.type;
     ctx.beginPath();
     if (style) setStyle(ctx, style);
-    for (var j = 0; j < feature.geometry.length; j++) {
-        var ring = feature.geometry[j];
-        for (var k = 0; k < ring.length; k++) {
-            var p = ring[k];
-            if (k) ctx.lineTo(p[0] / 16.0, p[1] / 16.0);
-            else ctx.moveTo(p[0] / 16.0, p[1] / 16.0);
+    if (type === 2 || type === 3) {
+        for (var j = 0; j < feature.geometry.length; j++) {
+            var ring = feature.geometry[j];
+            for (var k = 0; k < ring.length; k++) {
+                var p = ring[k];
+                if (k) ctx.lineTo(p[0] / 16.0, p[1] / 16.0);
+                else ctx.moveTo(p[0] / 16.0, p[1] / 16.0);
+            }
         }
-    }
-    if (type === 3) ctx.fill('evenodd');
+    } else if (type === 1) {
+        for (var j = 0; j < feature.geometry.length; j++) {
+            var p = feature.geometry[j];
+            ctx.arc(p[0] / 16.0, p[1] / 16.0, 2, 0, Math.PI * 2, true);
+        }
+    } else if (type === 3) ctx.fill('evenodd');
     ctx.stroke();
 }
 
