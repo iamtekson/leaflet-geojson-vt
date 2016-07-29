@@ -41,7 +41,9 @@ function drawFeature(ctx, feature, style) {
             var p = feature.geometry[j];
             ctx.arc(p[0] / 16.0, p[1] / 16.0, 2, 0, Math.PI * 2, true);
         }
-    } else if (type === 3) ctx.fill('evenodd');
+    }
+    if (type === 3) ctx.fill('evenodd');
+
     ctx.stroke();
 }
 
