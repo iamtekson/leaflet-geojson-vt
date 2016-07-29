@@ -1,13 +1,16 @@
-L.TileLayer.Canvas.include({
-    drawGeoJSON: function (geojson, style) {
-        var tileIndex;
-        var options = {
-            maxZoom: 16,  // max zoom to preserve detail on
-            tolerance: 3, // simplification tolerance (higher means simpler)
-            debug: 0
-        };
+L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
+    options: {
+        async: false
+    },
 
-        tileIndex = geojsonvt(geojson, options);
+    initialize: function (geojson, options, style) {
+        L.setOptions(this, options);
+        L.TileLayer.Canvas.prototype.initialize.call(this, options);
+        this.drawGeoJSON(geojson, style);
+    },
+
+    drawGeoJSON: function (geojson, style) {
+        var tileIndex = geojsonvt(geojson, this.options);
         this.drawTile = function (_canvas, tilePoint, zoom) {
             var ctx = _canvas.getContext('2d');
             var tile = tileIndex.getTile(zoom, tilePoint.x, tilePoint.y);
@@ -52,6 +55,8 @@ L.TileLayer.Canvas.include({
     }
 })
 
-
+L.tileLayer.canvas.geoJson = function (geojson, options, style) {
+    return new L.TileLayer.Canvas.GeoJSON(geojson, options, style);
+};
 
 

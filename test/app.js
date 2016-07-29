@@ -18,10 +18,15 @@ function initMap() {
 
 function drawCanvasLayer(url, name, style) {
     var name = name || "canvas";
-    var canvas = L.tileLayer.canvas().addTo(map);
-    layerControl.addOverlay(canvas, name);
+
     corslite(url, function (err, resp) {
-        canvas.drawGeoJSON(JSON.parse(resp.response), style)
+        var json = JSON.parse(resp.response);
+        var canvasLayer = L.tileLayer.canvas.geoJson(json, {
+            maxZoom: 16,
+            tolerance: 3,
+            debug: 0
+        }, style).addTo(map);
+        layerControl.addOverlay(canvasLayer, name);
     }, true);
 }
 
