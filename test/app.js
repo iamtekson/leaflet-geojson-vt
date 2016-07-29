@@ -31,8 +31,8 @@ function main() {
         weight: 2
     }
     drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon', style)
-    drawCanvasLayer('../libs/greenway.json', 'polyline', style)
-    drawCanvasLayer('../libs/busstop.json','point',style)
+    drawCanvasLayer('./greenway.json', 'polyline', style)
+    drawCanvasLayer('./busstop.json','point',style)
 }
 
 main();
