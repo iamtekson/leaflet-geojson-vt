@@ -11,18 +11,18 @@ function initMap() {
     });
     layerControl = L.control.layers({
         'osm': osm,
-        'geoq':geoq
+        'geoq': geoq
     }, {}).addTo(map);
     L.hash(map);
 }
 
-function drawCanvasLayer(url,name){
-  var canvas = L.tileLayer.canvas().addTo(map);
-  layerControl.addOverlay(canvas,name);
-  drawGeoJSON(canvas,url)
+function drawCanvasLayer(url, name, style) {
+    var canvas = L.tileLayer.canvas().addTo(map);
+    layerControl.addOverlay(canvas, name);
+    drawGeoJSON(canvas, url, style)
 }
 
-function drawGeoJSON(canvas, url) {
+function drawGeoJSON(canvas, url, style) {
     var tileIndex;
     var options = {
         maxZoom: 4,
@@ -30,24 +30,25 @@ function drawGeoJSON(canvas, url) {
         maxPoints: 100,
         debug: 1
     };
-    corslite(url, function(err, resp) {
+    corslite(url, function (err, resp) {
         tileIndex = geojsonvt(JSON.parse(resp.response), options);
-        canvas.drawTile = function(canvas, tilePoint, zoom) {
+        canvas.drawTile = function (canvas, tilePoint, zoom) {
             var ctx = canvas.getContext('2d');
             var tile = tileIndex.getTile(zoom, tilePoint.x, tilePoint.y);
             var features = tile ? tile.features : [];
             for (var i = 0; i < features.length; i++) {
                 var feature = features[i];
-                drawFeature(ctx, feature);
+                drawFeature(ctx, feature, style);
             }
         };
     }, true);
 }
 
-function drawFeature(ctx, feature) {
+function drawFeature(ctx, feature, style) {
     var typeChanged = type !== feature.type,
         type = feature.type;
     ctx.beginPath();
+    if(style) setStyle(ctx,style);
     for (var j = 0; j < feature.geometry.length; j++) {
         var ring = feature.geometry[j];
         for (var k = 0; k < ring.length; k++) {
@@ -60,11 +61,22 @@ function drawFeature(ctx, feature) {
     ctx.stroke();
 }
 
-function main(){
-  initMap();
-  drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson','polygon')
-  drawCanvasLayer('./libs/greenway.json','polyline')
-  // drawGeoJSON('./libs/busstop.json')
+function setStyle(ctx, style){
+    ctx.lineWidth = style.weight||{};
+    ctx.strokeStyle = style.color||{};
+    ctx.fillStyle = style.fillColor||{};
+}
+
+function main() {
+    initMap();
+    style = {
+        fillColor:'#1EB300',
+        color:'#160',
+        weight:5
+    }
+    drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon',style)
+    drawCanvasLayer('./libs/greenway.json', 'polyline',style)
+    // drawGeoJSON('./libs/busstop.json')
 }
 
 main();

@@ -5,8 +5,9 @@ It is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojso
 
 ## TODO
 
-- different canvas layers
-- style for polygon and polyline
+- ~~different canvas layers~~
+- ~~style for polygon and polyline~~
+- ~~layers change~~
 - draw point on canvas
 - draw marker by image
-- layers change
+
