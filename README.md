@@ -3,7 +3,11 @@ A plugin combining geojson-vt with leafletjs
 
 It is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet)
 
-##Test
+## Demo
+
+[DEMO](https://brandonxiang.github.io/leaflet-geojson-vt/test)
+
+## Test
 
 run npm script with `browser-sync`
 
@@ -17,10 +21,10 @@ Browser on `http://localhost:3000/test`
 
 [TODO](doc/TODO.md)
 
-##Changelog
+## Changelog
 
 [changelog](doc/changelog.md)
 
-##License
+## License
 
 [LICENSE](LICENSE)
