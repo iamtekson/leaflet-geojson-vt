@@ -1,3 +1,7 @@
+2016/8/1 0.1.0
+
+- ~~new branch to compatiable with 1.0.0~~
+
 2016/8/1 0.0.2
 
 - ~~more geojson style~~

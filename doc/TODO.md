@@ -1,8 +1,8 @@
 # TODO
 
-- new branch to compatiable with 1.0.0
 - point interactive
 
+- ~~new branch to compatiable with 1.0.0~~
 - ~~more geojson style~~
 - ~~convert to included class of `L.TileLayer.Canvas`~~
 - ~~different canvas layers~~
