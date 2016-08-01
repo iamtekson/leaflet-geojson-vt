@@ -41,6 +41,10 @@ var tileIndex = geojsonvt(data, {
 
 - [geojson-vt](https://github.com/mapbox/geojson-vt)
 
+## Demo
+
+[DEMO](https://brandonxiang.github.io/leaflet-geojson-vt/test)
+
 ## Test
 
 run npm script with `browser-sync`
