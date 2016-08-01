@@ -18,7 +18,7 @@ function initMap() {
 
 function drawCanvasLayer(url, name, options) {
     var name = name || "canvas";
-   
+
     corslite(url, function (err, resp) {
         var json = JSON.parse(resp.response);
         var canvasLayer = L.tileLayer.canvas.geoJson(json, options).addTo(map);
@@ -28,7 +28,7 @@ function drawCanvasLayer(url, name, options) {
 
 function main() {
     initMap();
-     var options = {
+    var options = {
         maxZoom: 16,
         tolerance: 3,
         debug: 0,

@@ -1,7 +1,10 @@
 # TODO
 
-- ~~convert to included class of `L.TileLayer.Canvas`~~
+- new branch to compatiable with 1.0.0
+- more geojson style
+- point interactive
 
+- ~~convert to included class of `L.TileLayer.Canvas`~~
 - ~~different canvas layers~~
 - ~~style for polygon and polyline~~
 - ~~layers change~~

@@ -1,9 +1,47 @@
 # leaflet-geojson-vt
-A plugin combining geojson-vt with leafletjs
+A plugin combining geojson-vt with leafletjs(0.7.7) L.TileLayer.Canvas
 
 It is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet)
 
-##Test
+Warning: This plugin tries to be compatiable with 1.0.0 L.GridLayer
+
+## Usage
+
+```
+var options = {
+    maxZoom: 16,
+    tolerance: 3,
+    debug: 0,
+    style: {
+        fillColor: '#1EB300',
+        color: '#F2FF00',
+        weight: 2
+    }
+};
+var canvasLayer = L.tileLayer.canvas.geoJson(json, options).addTo(map);
+```
+
+Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options)
+
+```
+var tileIndex = geojsonvt(data, {
+    maxZoom: 14,  // max zoom to preserve detail on
+    tolerance: 3, // simplification tolerance (higher means simpler)
+    extent: 4096, // tile extent (both width and height)
+    buffer: 64,   // tile buffer on each side
+    debug: 0      // logging level (0 to disable, 1 or 2)
+
+    indexMaxZoom: 4,        // max zoom in the initial tile index
+    indexMaxPoints: 100000, // max number of points per tile in the index
+    solidChildren: false    // whether to include solid tile children in the index
+});
+```
+
+## Dependency
+
+- [geojson-vt](https://github.com/mapbox/geojson-vt)
+
+## Test
 
 run npm script with `browser-sync`
 
@@ -17,10 +55,10 @@ Browser on `http://localhost:3000/test`
 
 [TODO](doc/TODO.md)
 
-##Changelog
+## Changelog
 
 [changelog](doc/changelog.md)
 
-##License
+## License
 
 [LICENSE](LICENSE)
