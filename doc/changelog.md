@@ -1,3 +1,7 @@
+2016/8/1 0.0.2
+
+- ~~more geojson style~~
+
 2016/7/29 version 0.0.1
 
 - ~~different canvas layers~~

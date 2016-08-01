@@ -35,7 +35,9 @@ function main() {
         style: {
             fillColor: '#1EB300',
             color: '#F2FF00',
-            weight: 2
+            opacity: 0.5,
+            weight: 2,
+            fillOpacity:0.5
         }
     };
     drawCanvasLayer('http://handygeospatial.github.io/geojsonvt-ksj-site/kanagawa_yoto.geojson', 'polygon', options)
