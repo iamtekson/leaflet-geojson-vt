@@ -23,7 +23,7 @@ var options = {
 var canvasLayer = L.gridLayer.geoJson(json, options).addTo(map);
 ```
 
-Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options)
+Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options).
 
 ```
 var tileIndex = geojsonvt(data, {
