@@ -1,11 +1,6 @@
 # leaflet-geojson-vt
 
-A plugin combining geojson-vt with leafletjs 1.0,which is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet).
-
-If you use leaflet 0.7, please switch to the master branch.
-
-- 0.7 on [leaflet-0.7 branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/master)
-- 1.0 on [master branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/leaflet1.0.0)
+It is a open-source leaflet plugin which generate the vector tiles for geojson data. It has the dev-dependency of [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet).
 
 ## Usage
 

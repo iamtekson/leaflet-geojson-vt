@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/iamtekson/leaflet-geojson-vt/issues"
   },
-  "homepage": "https://github.com/iamtekson/leaflet-geojson-vt#readme"
+  "homepage": "https://github.com/iamtekson/leaflet-geojson-vt#readme",
+  "devDependencies": {
+    "geojson-vt": "^3.2.1"
+  }
 }
