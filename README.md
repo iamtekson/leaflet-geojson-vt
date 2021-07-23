@@ -2,25 +2,45 @@
 
 It is a open-source leaflet plugin which generate the vector tiles for geojson data. It has the dev-dependency of [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet).
 
+## Demo
+
+[DEMO](https://iamtekson.github.io/leaflet-geojson-vt/demo/)
+
+## Installation and setup
+
+- Using NPM:
+
+```js
+npm install leaflet-geojson-vt
+```
+
+- Quick use:
+
+```js
+<script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
+<script src="[path to js]/leaflet-geojson-vt.js"></script>
+```
+
 ## Usage
 
-```
+```js
 var options = {
-    maxZoom: 16,
-    tolerance: 3,
-    debug: 0,
-    style: {
-        fillColor: '#1EB300',
-        color: '#F2FF00',
-        weight: 2
-    }
+  maxZoom: 16,
+  tolerance: 3,
+  debug: 0,
+  style: {
+    fillColor: "#1EB300",
+    color: "#F2FF00",
+  },
 };
-var canvasLayer = L.gridLayer.geoJson(json, options).addTo(map);
+var vtLayer = L.geoJson.vt(geojson, options).addTo(map);
 ```
 
 Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options).
 
-```
+The following are the default options from geojson-vt.
+
+```js
 var tileIndex = geojsonvt(data, {
     maxZoom: 14,  // max zoom to preserve detail on
     tolerance: 3, // simplification tolerance (higher means simpler)
@@ -37,28 +57,6 @@ var tileIndex = geojsonvt(data, {
 ## Dependency
 
 - [geojson-vt](https://github.com/mapbox/geojson-vt)
-
-## Demo
-
-[DEMO](https://brandonxiang.github.io/leaflet-geojson-vt/test)
-
-## Test
-
-run npm script with `browser-sync`
-
-```
-npm run dev
-```
-
-Browser on `http://localhost:3000/test`
-
-## TODO
-
-[TODO](doc/TODO.md)
-
-## Changelog
-
-[changelog](doc/changelog.md)
 
 ## License
 
