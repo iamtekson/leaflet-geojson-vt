@@ -11,7 +11,7 @@
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
 
-    <title>Web-GIS with geoserver and leaflet</title>
+    <title>leaflet-geojson-vt demo</title>
 
     <style>
       body {
@@ -37,7 +37,7 @@
 <script src="../src/leaflet-geojson-vt.js"></script>
 
 <!-- js data link  -->
-<script src="../test/nepal-districts.js"></script>
+<script src="./nepal-districts.js"></script>
 
 
 <script>
@@ -51,44 +51,44 @@
 
   osm.addTo(map);
 
-
-  function getColor(d) {
-    return d > 0.73  ? '#800026' :
-           d > 0.55  ? '#BD0026' :
-           d > 0.5   ? '#E31A1C' :
-           d > 0.3   ? '#FC4E2A' :
-           d > 0.2   ? '#FD8D3C' :
-           d > 0.08  ? '#FEB24C' :
-           d > 0.01  ? '#FED976' :
-                      '#FFEDA0';
-}
-
-function style(feature) {
-    return {
-    fillColor: getColor(feature.properties.Shape_Area),
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.5,
-    }
-}
-
   var geojsonStyle = {
     fillColor:"#ff0000",
     color: "#000",
     weight: 1,
     opacity: 1,
-    fillOpacity: 0.5,
+    fillOpacity: 0.7,
   };
 
 var options = {
     maxZoom: 20,
     tolerance: 3,
     debug: 0,
-    style: style
+    style: geojsonStyle
 };
 var canvasLayer = L.gridLayer.geoJson(data, options).addTo(map);
 
 console.log(canvasLayer)
 
 </script>
+
+
+<!-- function getColor(d) {
+  return d > 0.73  ? '#800026' :
+         d > 0.55  ? '#BD0026' :
+         d > 0.5   ? '#E31A1C' :
+         d > 0.3   ? '#FC4E2A' :
+         d > 0.2   ? '#FD8D3C' :
+         d > 0.08  ? '#FEB24C' :
+         d > 0.01  ? '#FED976' :
+                    '#FFEDA0';
+}
+
+function style(feature) {
+  return {
+  fillColor: getColor(feature.properties.Shape_Area),
+  color: "#000",
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.5,
+  }
+} -->
