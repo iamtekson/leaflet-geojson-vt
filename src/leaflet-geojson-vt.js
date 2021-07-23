@@ -1,4 +1,4 @@
-L.GridLayer.GeoJSON = L.GridLayer.extend({
+L.GeoJSON.VT = L.GridLayer.extend({
   options: {
     async: false,
   },
@@ -98,8 +98,8 @@ L.GridLayer.GeoJSON = L.GridLayer.extend({
   },
 });
 
-L.gridLayer.geoJson = function (geojson, options) {
-  return new L.GridLayer.GeoJSON(geojson, options);
+L.geoJson.vt = function (geojson, options) {
+  return new L.GeoJSON.VT(geojson, options);
 };
 
 String.prototype.iscolorHex = function () {

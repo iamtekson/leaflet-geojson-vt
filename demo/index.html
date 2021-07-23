@@ -65,7 +65,7 @@ var options = {
     debug: 0,
     style: geojsonStyle
 };
-var canvasLayer = L.gridLayer.geoJson(data, options).addTo(map);
+var canvasLayer = L.geoJson.vt(data, options).addTo(map);
 
 console.log(canvasLayer)
 
