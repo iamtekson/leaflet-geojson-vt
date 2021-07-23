@@ -4,8 +4,8 @@ A plugin combining geojson-vt with leafletjs 1.0,which is inspired by [geojson-v
 
 If you use leaflet 0.7, please switch to the master branch.
 
-- 0.7 on [master branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/master)
-- 1.0 on [leaflet1.0.0 branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/leaflet1.0.0)
+- 0.7 on [leaflet-0.7 branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/master)
+- 1.0 on [master branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/leaflet1.0.0)
 
 ## Usage
 

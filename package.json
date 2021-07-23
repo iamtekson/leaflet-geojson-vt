@@ -1,28 +1,30 @@
 {
   "name": "leaflet-geojson-vt",
-  "version": "0.0.1",
-  "description": "A plugin combining geojson-vt with leafletjs",
+  "version": "1.0.0",
+  "description": "This is the package for vector-tile.",
   "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brandonxiang/leaflet-geojson-vt.git"
+    "url": "git+https://github.com/iamtekson/leaflet-geojson-vt.git"
   },
   "keywords": [
+    "leaflet-geojson-vt",
+    "geojson-vt",
+    "geojson",
     "leaflet",
-    "geojson-vt"
+    "iamtekson"
   ],
-  "author": "brandonxiang",
+  "author": "iamtekson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brandonxiang/leaflet-geojson-vt/issues"
+    "url": "https://github.com/iamtekson/leaflet-geojson-vt/issues"
   },
-  "homepage": "https://github.com/brandonxiang/leaflet-geojson-vt#readme",
-  "dependencies": {
-    "geojson-vt": "^2.2.0",
-    "leaflet": "^0.7.7"
-  }
+  "homepage": "https://github.com/iamtekson/leaflet-geojson-vt#readme"
 }
