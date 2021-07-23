@@ -1,8 +1,11 @@
 # leaflet-geojson-vt
 
-A plugin combining geojson-vt with leafletjs(0.7.7), which is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet).
+A plugin combining geojson-vt with leafletjs 1.0,which is inspired by [geojson-vt-leaflet](https://github.com/handygeospatial/geojson-vt-leaflet).
 
-**Warning**: This plugin is not compatiable with Leaflet 1.0, because L.Tilelayer.Canvas is replaced by L.GridLayer. Therefore, if you want to use it in Leaflet 1.0, go to [the Leaflet1.0 branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/leaflet1.0.0) please.
+If you use leaflet 0.7, please switch to the master branch.
+
+- 0.7 on [master branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/master)
+- 1.0 on [leaflet1.0.0 branch](https://github.com/brandonxiang/leaflet-geojson-vt/tree/leaflet1.0.0)
 
 ## Usage
 
@@ -17,7 +20,7 @@ var options = {
         weight: 2
     }
 };
-var canvasLayer = L.tileLayer.canvas.geoJson(json, options).addTo(map);
+var canvasLayer = L.gridLayer.geoJson(json, options).addTo(map);
 ```
 
 Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options).

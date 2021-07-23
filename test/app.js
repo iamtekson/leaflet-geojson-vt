@@ -21,7 +21,7 @@ function drawCanvasLayer(url, name, options) {
 
     corslite(url, function (err, resp) {
         var json = JSON.parse(resp.response);
-        var canvasLayer = L.tileLayer.canvas.geoJson(json, options).addTo(map);
+        var canvasLayer = L.gridLayer.geoJson(json, options).addTo(map);
         layerControl.addOverlay(canvasLayer, name);
     }, true);
 }

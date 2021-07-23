@@ -1,27 +1,34 @@
-L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
+L.GridLayer.GeoJSON = L.GridLayer.extend({
     options: {
         async: false
     },
 
     initialize: function (geojson, options) {
         L.setOptions(this, options);
-        L.TileLayer.Canvas.prototype.initialize.call(this, options);
-        this.drawGeoJSON(geojson);
+        L.GridLayer.prototype.initialize.call(this, options);
+        this.tileIndex = geojsonvt(geojson, this.options);
     },
 
-    drawGeoJSON: function (geojson) {
-        var tileIndex = geojsonvt(geojson, this.options);
-        this.drawTile = function (_canvas, tilePoint, zoom) {
-            var ctx = _canvas.getContext('2d');
-            var tile = tileIndex.getTile(zoom, tilePoint.x, tilePoint.y);
-            var features = tile ? tile.features : [];
-            for (var i = 0; i < features.length; i++) {
-                var feature = features[i];
-                this.drawFeature(ctx, feature);
-            }
-        };
 
+    createTile: function (coords) {
+        // create a <canvas> element for drawing
+        var tile = L.DomUtil.create('canvas', 'leaflet-tile');
+        // setup tile width and height according to the options
+        var size = this.getTileSize();
+        tile.width = size.x;
+        tile.height = size.y;
+        // get a canvas context and draw something on it using coords.x, coords.y and coords.z
+        var ctx = tile.getContext('2d');
+        // return the tile so it can be rendered on screen
+        var tileInfo = this.tileIndex.getTile(coords.z, coords.x, coords.y);
+        var features = tileInfo ? tileInfo.features : [];
+        for (var i = 0; i < features.length; i++) {
+            var feature = features[i];
+            this.drawFeature(ctx, feature);
+        }
+        return tile;
     },
+
 
     drawFeature: function (ctx, feature) {
         var typeChanged = type !== feature.type,
@@ -52,7 +59,7 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
         var stroke = style.stroke || true;
         if (stroke) {
             ctx.lineWidth = style.weight || 5;
-            var color = this.setOpacity(style.color,style.opacity);
+            var color = this.setOpacity(style.color, style.opacity);
             ctx.strokeStyle = color;
 
         } else {
@@ -62,7 +69,7 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
         var fill = style.fill || true;
         if (fill) {
             ctx.fillStyle = style.fillColor || '#03f';
-            var color = this.setOpacity(style.fillColor,style.fillOpacity);
+            var color = this.setOpacity(style.fillColor, style.fillOpacity);
             ctx.fillStyle = color;
         } else {
             ctx.fillStyle = {};
@@ -85,8 +92,8 @@ L.TileLayer.Canvas.GeoJSON = L.TileLayer.Canvas.extend({
     }
 })
 
-L.tileLayer.canvas.geoJson = function (geojson, options) {
-    return new L.TileLayer.Canvas.GeoJSON(geojson, options);
+L.gridLayer.geoJson = function (geojson, options) {
+    return new L.GridLayer.GeoJSON(geojson, options);
 };
 
 String.prototype.iscolorHex = function () {
