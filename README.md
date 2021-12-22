@@ -36,6 +36,23 @@ var options = {
 var vtLayer = L.geoJson.vt(geojson, options).addTo(map);
 ```
 
+Apart from an `Object`, a `Function` can also be assigned to `options.style` in order to handle style dynamically.
+
+```js
+var options = {
+  maxZoom: 16,
+  tolerance: 3,
+  debug: 0,
+  style: (properties) => {
+    if (properties.ADM1_PCODE == 'NP07') {
+      return  {fillColor:"#0F0",color:"#F2FF00"};
+    } else {
+      return  {fillColor:"#1EB300",color:"#F2FF00"};
+    }
+  }
+};
+```
+
 Options are included with [geojson-vt options](https://github.com/mapbox/geojson-vt#options) and [L.geojson style](http://leafletjs.com/reference.html#path-options).
 
 The following are the default options from geojson-vt.
