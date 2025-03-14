@@ -2,7 +2,7 @@
   "name": "leaflet-geojson-vt",
   "version": "1.1.0",
   "description": "This is the package for vector-tile.",
-  "main": "index.js",
+  "main": "src/leaflet-geojson-vt.js",
   "directories": {
     "doc": "doc",
     "test": "test"
